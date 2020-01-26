@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    restart: always
+    volumes:
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - app
+    ports:
+      - 9093:80
+      - 9094:8080
+
+  blue:
+    container_name: blue
+    image: tipsypenguin/hello-world:blue
+    restart: always
+    networks:
+      - app
+    ports:
+      - 9091:8000
+
+  green:
+    container_name: green
+    image: tipsypenguin/hello-world:green
+    networks:
+      - app
+    ports:
+      - 9092:8000
+
+
+networks:
+  app:
