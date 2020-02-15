@@ -11,7 +11,7 @@ services:
     networks:
       - app
     ports:
-      - "${EXTERNAL_HTTP_PORT}:80"
+      - "${EXTERNAL_PORT}:80"
 
   blue:
     container_name: ${COMPOSE_PROJECT_NAME}-blue
