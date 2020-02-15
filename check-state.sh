@@ -2,8 +2,10 @@
 
 set -e
 
+source load-dotenv.sh
+
 echo 'Check the current state'
-production_state=$(curl -s http://localhost:9093/deploy-state || echo 'blue')
+production_state=$(curl -s http://localhost:$EXTERNAL_HTTP_PORT/deploy-state || echo 'blue')
 
 state='blue'
 new_state='green'

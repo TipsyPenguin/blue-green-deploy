@@ -2,7 +2,9 @@
 
 set -e
 
+cp .env.example .env
+
 docker-compose up -d nginx
 
-./deploy.sh 1.0.0
+./deploy.sh latest
 ./swap.sh
