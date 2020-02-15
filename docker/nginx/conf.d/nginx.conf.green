@@ -10,6 +10,12 @@ server {
         return 200 'green';
     }
 
+    location /deploy-info {
+        add_header 'Access-Control-Allow-Origin' '*';
+        default_type "application/json";
+        alias /var/www/green.json;
+    }
+
     location / {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $http_host;
