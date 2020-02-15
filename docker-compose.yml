@@ -20,7 +20,7 @@ services:
       - app
 
   green:
-    container_name: green
+    container_name: ${COMPOSE_PROJECT_NAME}-green
     image: $IMAGE_NAME:green
     networks:
       - app
