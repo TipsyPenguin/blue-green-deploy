@@ -23,6 +23,7 @@ services:
   green:
     container_name: ${COMPOSE_PROJECT_NAME}-green
     image: $IMAGE_NAME:green
+    restart: always
     networks:
       - app
 
